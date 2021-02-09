@@ -72,7 +72,7 @@ def test_dijkstra():
 
     shortest_path = dijkstra(cities, "ankara", "izmir")
 
-    assert shortest_path == ['ankara', 'eskişehir', 'istanbul', 'izmir']
+    assert shortest_path == ["ankara", "eskişehir", "istanbul", "izmir"]
 
 
 if __name__ == "__main__":

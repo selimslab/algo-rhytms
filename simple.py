@@ -93,8 +93,6 @@ def test_string_comp():
     return string_compression("aaaabbcccccaaabb") == "a4b2c5a3b2"
 
 
-"""
-"""
 def check_brackets(test_iterable):
     if len(test_iterable) % 2 != 0:
         return False

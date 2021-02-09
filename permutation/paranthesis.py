@@ -2,8 +2,7 @@ def generate_parenthesis(n):
     ans = []
 
     def backtrack(current_string="", left=0, right=0):
-        """
-        """
+        """"""
         if len(current_string) == 2 * n:
             ans.append(current_string)
             return
