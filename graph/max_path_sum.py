@@ -4,15 +4,15 @@ def maxPathSum(self, root: TreeNode) -> int:
       / \
      2   3
 
-Output: 6
+    Output: 6
 
-   -10
-   / \
-  9  20
-    /  \
-   15   7
+    -10
+    / \
+    9  20
+        /  \
+    15   7
 
-Output: 42
+    Output: 42
 
 
     """
