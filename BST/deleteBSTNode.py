@@ -20,8 +20,9 @@ Another valid answer is [5,2,6,null,4,null,7].
    \   \
     4   7
 """
-    
-def deleteNode(self, root, key):
+
+
+def deleteNode(root, key):
 
     if not root:
         return
@@ -39,7 +40,7 @@ def deleteNode(self, root, key):
         if not root.left:
             return root.right
 
-        # if it has a left child, we want to find the max val on the left subtree to 
+        # if it has a left child, we want to find the max val on the left subtree to
         # replace the node we want to delete.
         else:
             # try to find the max value on the left subtree
@@ -48,7 +49,6 @@ def deleteNode(self, root, key):
                 tmp = tmp.right
 
             root.val = tmp.val
-   
-                root.left = self.deleteNode(root.left, tmp.val)
-        
+            root.left = self.deleteNode(root.left, tmp.val)
+
         return root
