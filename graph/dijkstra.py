@@ -33,23 +33,37 @@ def get_shortest_path(parents, start_node, finish_node):
 
 
 def dijkstra(graph, start_node, finish_node):
-    costs = {start_node: 0}
-    parents = dict()
+    """
+    Dijkstra’s Algorithm works with bidirected or undirected graphs and positive weights.
+    If you have negative weights, use Bellman-Ford Algorithm.
+    
+    The Algorithm has 3 main steps:
+
+    1.Find the nearest neighbor
+    2.Update cost and parent of a node if you find a cheaper path 
+    3.Repeat for every node
+    """
+
     nodes = graph.nodes
+    costs = {start_node: 0}
+    parents = {}
 
+    # 3.Repeat for every node
     while nodes:
+        # 1.Find the nearest neighbor.
         costs_of_remaining_nodes = {k: v for k, v in costs.items() if k in nodes}
-        cheapest_node = min(costs_of_remaining_nodes, key=costs_of_remaining_nodes.get)
-        nodes.remove(cheapest_node)
+        nearest_neighbor = min(costs_of_remaining_nodes, key=costs_of_remaining_nodes.get)
+        nodes.remove(nearest_neighbor)
 
-        cost = costs[cheapest_node]
-        neighbors = graph.edges[cheapest_node]
+        # 2.Check whether there’s a cheaper path to neighbors of this node. If so, update costs.
 
+        cost = costs[nearest_neighbor]
+        neighbors = graph.edges[nearest_neighbor]
         for neighbor in neighbors:
-            new_cost = cost + graph.distances[(cheapest_node, neighbor)]
+            new_cost = cost + graph.distances[(nearest_neighbor, neighbor)]
             if neighbor not in costs or new_cost < costs[neighbor]:
                 costs[neighbor] = new_cost
-                parents[neighbor] = cheapest_node
+                parents[neighbor] = nearest_neighbor
 
     print("parents:", parents)
     print("minimum distances:", costs)
