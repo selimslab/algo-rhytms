@@ -11,4 +11,5 @@ def longest_common_prefix(words) -> "str":
 
     return shortest_word
 
-assert longest_common_prefix(["flower","flow","flight"]) == "fl"
+
+assert longest_common_prefix(["flower", "flow", "flight"]) == "fl"

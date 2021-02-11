@@ -1,6 +1,7 @@
-from bfs import bfs 
-from dfs import dfs 
-from toposort import toposort 
+from bfs import bfs
+from dfs import dfs
+from toposort import toposort
+
 
 def test():
     graph1 = {

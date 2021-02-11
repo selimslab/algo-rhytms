@@ -13,6 +13,7 @@ def pivot_index(nums) -> int:
 
     return -1
 
+
 assert pivot_index([1, 7, 3, 6, 5, 6]) == 3
 """
 The sum of the numbers to the left of index 3 

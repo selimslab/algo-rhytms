@@ -1,10 +1,12 @@
 from typing import List
 
+
 class TreeNode:
     def __init__(self, data):
         self.data = data
         self.left = None
         self.right = None
+
 
 def sortedArrayToBST(nums: List[int]) -> TreeNode:
     """
@@ -28,13 +30,14 @@ def sortedArrayToBST(nums: List[int]) -> TreeNode:
        /   /
      -10  5
     """
-    def go(left,right):
-        if left>right:
+
+    def go(left, right):
+        if left > right:
             return None
-        mid = (left+right) // 2
+        mid = (left + right) // 2
         root = TreeNode(nums[mid])
-        root.left = go(left, mid-1)
-        root.right = go(mid+1, right)
+        root.left = go(left, mid - 1)
+        root.right = go(mid + 1, right)
         return root
 
-    return go(0, len(nums)-1)
+    return go(0, len(nums) - 1)

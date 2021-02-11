@@ -8,28 +8,29 @@ find the largest square containing only 1's and return its area.
 Output: 4
 """
 
-def maximalSquare(self, matrix: List[List[str]]) -> int: 
+
+def maximalSquare(self, matrix: List[List[str]]) -> int:
     rows = len(matrix)
     if rows:
         cols = len(matrix[0])
     else:
-        cols = 0 
+        cols = 0
 
-    dp = [0] * (cols+1)
+    dp = [0] * (cols + 1)
     maxsq = 0
-    prev = 0 
+    prev = 0
 
-    for i in range(1,rows+1):
-        for j in range(1,cols+1):
+    for i in range(1, rows + 1):
+        for j in range(1, cols + 1):
             temp = dp[j]
-            if matrix[i-1][j-1] == "1":
-                min_prev = min(dp[j-1], prev)
+            if matrix[i - 1][j - 1] == "1":
+                min_prev = min(dp[j - 1], prev)
                 min_cur = min(min_prev, dp[j])
                 dp[j] = min_cur + 1
-                maxsq = max(maxsq,dp[j])
+                maxsq = max(maxsq, dp[j])
             else:
                 dp[j] = 0
 
-            prev = temp 
+            prev = temp
 
-    return maxsq*maxsq
+    return maxsq * maxsq

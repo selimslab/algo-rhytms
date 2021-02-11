@@ -14,4 +14,3 @@ def bfs(graph, start_node):
             result.append(node)
 
     return result
-

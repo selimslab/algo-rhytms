@@ -8,4 +8,3 @@ def dfs(graph, start_node, visited=None):
             dfs(graph, node, visited)
 
     return visited
-

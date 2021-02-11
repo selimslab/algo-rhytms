@@ -19,8 +19,10 @@ Note:
 cost will have a length in the range [2, 1000].
 Every cost[i] will be an integer in the range [0, 999].
 """
-def minCostClimbingStairs(self, cost: List[int]) -> int:   
-    c1,c2 = cost[0], cost[1]
-    for i in range(2,len(cost)):
-        c1, c2 = c2, cost[i]+min(c1,c2)
-    return min(c1,c2)
+
+
+def minCostClimbingStairs(self, cost: List[int]) -> int:
+    c1, c2 = cost[0], cost[1]
+    for i in range(2, len(cost)):
+        c1, c2 = c2, cost[i] + min(c1, c2)
+    return min(c1, c2)

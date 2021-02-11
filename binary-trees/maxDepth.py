@@ -15,10 +15,11 @@
 return : 3
 """
 
-def maxDepth(self, root: 'TreeNode') -> 'int':
+
+def maxDepth(self, root: "TreeNode") -> "int":
     if not root:
         return 0
     left = self.maxDepth(root.left)
-    right =  self.maxDepth(root.right)
+    right = self.maxDepth(root.right)
 
-    return max(left,right)+1
+    return max(left, right) + 1

@@ -25,17 +25,18 @@ Output: false
 
 """
 
+
 def wordBreak(self, s: str, wordDict: List[str]) -> bool:
     """
     this can be broken down to subproblems
     if we know a string is ok up to the 42nd index,
-     it's enough to check from there 
-    
+     it's enough to check from there
+
     a list can keep track of this, ok = []
-    if up to ith index of s is ok, ok[i] will be True 
-    
-    eg. 
-    s="cars" 
+    if up to ith index of s is ok, ok[i] will be True
+
+    eg.
+    s="cars"
     wordDict = [car, ca, rs]
     start walking from the start
     ok = [t,f,f,f,f,f]
@@ -46,12 +47,12 @@ def wordBreak(self, s: str, wordDict: List[str]) -> bool:
 
     ok = [True] + [False] * (len(s))
 
-    for i in range(1,len(s)+1): 
-        for j in range(i): # j is the start index
-            # start point has to be ok, 
+    for i in range(1, len(s) + 1):
+        for j in range(i):  # j is the start index
+            # start point has to be ok,
             # otherwise starting from here does not make sense
-            if ok[j] and s[j:i] in wordDict: 
-                    # we are ok up to index j 
-                    ok[i] = True
-                    break 
+            if ok[j] and s[j:i] in wordDict:
+                # we are ok up to index j
+                ok[i] = True
+                break
     return ok[-1]

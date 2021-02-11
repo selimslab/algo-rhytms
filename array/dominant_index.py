@@ -1,6 +1,3 @@
-
-
-
 def dominant_index(nums) -> int:
     max_index = 0
     max_num = nums[0]
@@ -15,6 +12,7 @@ def dominant_index(nums) -> int:
             return -1
 
     return max_index
+
 
 assert dominant_index([3, 6, 1, 0]) == 1
 

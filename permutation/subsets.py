@@ -12,10 +12,12 @@ Output:
   []
 ]
 """
+
+
 def subsets(self, nums: List[int]) -> List[List[int]]:
     ans = [[]]
 
     for num in nums:
         ans += [l + [num] for l in ans]
 
-    return ans 
+    return ans

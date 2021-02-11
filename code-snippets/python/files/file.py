@@ -1,10 +1,11 @@
 import os
 
+
 def traverse_directory(root_dir):
     for dir_name, subdir_list, file_list in os.walk(root_dir):
         yield dir_name, subdir_list, file_list
-        
-        
+
+
 def read_file(file_path):
     content = None
     try:

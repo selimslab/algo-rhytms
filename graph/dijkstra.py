@@ -36,11 +36,11 @@ def dijkstra(graph, start_node, finish_node):
     """
     Dijkstra’s Algorithm works with bidirected or undirected graphs and positive weights.
     If you have negative weights, use Bellman-Ford Algorithm.
-    
+
     The Algorithm has 3 main steps:
 
     1.Find the nearest neighbor
-    2.Update cost and parent of a node if you find a cheaper path 
+    2.Update cost and parent of a node if you find a cheaper path
     3.Repeat for every node
     """
 
@@ -50,9 +50,11 @@ def dijkstra(graph, start_node, finish_node):
 
     # 3.Repeat for every node
     while nodes:
-        # 1.Find the nearest neighbor.
+        #  1.Find the nearest neighbor.
         costs_of_remaining_nodes = {k: v for k, v in costs.items() if k in nodes}
-        nearest_neighbor = min(costs_of_remaining_nodes, key=costs_of_remaining_nodes.get)
+        nearest_neighbor = min(
+            costs_of_remaining_nodes, key=costs_of_remaining_nodes.get
+        )
         nodes.remove(nearest_neighbor)
 
         # 2.Check whether there’s a cheaper path to neighbors of this node. If so, update costs.

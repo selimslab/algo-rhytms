@@ -1,15 +1,18 @@
 from typing import List
 
+
 class ListNode:
     def __init__(self, data):
         self.val = val
         self.next = None
+
 
 class TreeNode:
     def __init__(self, data):
         self.val = val
         self.left = None
         self.right = None
+
 
 def sortedListToBST(self, head: ListNode) -> TreeNode:
     """
@@ -32,22 +35,21 @@ def sortedListToBST(self, head: ListNode) -> TreeNode:
      -10  5
     """
     if not head:
-        return None 
+        return None
     if not head.next:
         return TreeNode(head.val)
 
     pre, slow, fast = None, head, head
 
-    # when fast is at the end, slow will be at mid 
+    # when fast is at the end, slow will be at mid
     while fast and fast.next:
         pre, slow, fast = slow, slow.next, fast.next.next
     if pre:
-        # cut the parts from mid 
+        # cut the parts from mid
         pre.next = None
-
 
     root = TreeNode(slow.val)
     root.left = self.sortedListToBST(head)
     root.right = self.sortedListToBST(slow.next)
 
-    return root 
+    return root

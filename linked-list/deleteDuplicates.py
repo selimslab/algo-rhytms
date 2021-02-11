@@ -4,7 +4,7 @@ def deleteDuplicates(self, head: ListNode) -> ListNode:
     Example 1:
     Input: 1->1->2
     Output: 1->2
-    
+
     Example 2:
     Input: 1->1->2->3->3
     Output: 1->2->3
@@ -16,4 +16,4 @@ def deleteDuplicates(self, head: ListNode) -> ListNode:
             cur.next = cur.next.next
         else:
             cur = cur.next
-    return head 
+    return head

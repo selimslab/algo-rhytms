@@ -1,7 +1,7 @@
 def check_brackets(iterable):
     if len(iterable) % 2 != 0:
         return False
-    # also validate all are brackets 
+    # also validate all are brackets
 
     pairs = {"{": "}", "[": "]", "(": ")"}
 
@@ -13,5 +13,5 @@ def check_brackets(iterable):
             continue
         else:
             return False
-    
+
     return not s

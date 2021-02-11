@@ -2,7 +2,7 @@ from fuzzywuzzy import process, fuzz
 
 
 def match_by_fuzzy_string_search(
-        possible_matches: List[str], string_to_be_searched: str
+    possible_matches: List[str], string_to_be_searched: str
 ) -> str:
     scores = dict()
     for candidate in possible_matches:

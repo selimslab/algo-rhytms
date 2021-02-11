@@ -33,7 +33,7 @@ def generate_ngrams(s, n):
     n_grams = list()
 
     for i in range(len(tokens)):
-        n_gram = " ".join(tokens[i: i + n])
+        n_gram = " ".join(tokens[i : i + n])
         n_grams.append(n_gram)
 
     return n_grams

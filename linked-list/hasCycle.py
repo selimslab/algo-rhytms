@@ -7,11 +7,13 @@ class Node(object):
       self.data = data
       self.next = next_node
 """
-def has_cycle(head)->bool:
+
+
+def has_cycle(head) -> bool:
     if not head:
         return False
     slow, fast = head, head.next
-    
+
     while slow != fast:
         if fast is None or fast.next is None:
             return False
