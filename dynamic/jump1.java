@@ -2,6 +2,7 @@
 Input: [2,3,1,1,4]
 Output: true
 Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+
 Input: [3,2,1,0,4]
 Output: false
 Explanation: You will always arrive at index 3 no matter what. Its maximum
@@ -22,24 +23,3 @@ public class Solution {
         return lastPos == 0;
     }
     
-  /*
-  reach the last index in the minimum number of jumps.
-  Input: [2,3,1,1,4]
-  Output: 2
-  */
-      public int jump(int[] nums) {
-        int steps = 0;
-        int position = nums.length - 1;
-            
-        while(position != 0){
-            for(int i=0;i<position;i++){
-                if(i+nums[i]>=position){
-                    position=i;
-                    steps++;
-                    break;
-                }             
-            }
-        }
-        return steps;
-    }
-}
