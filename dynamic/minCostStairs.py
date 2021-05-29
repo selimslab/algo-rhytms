@@ -22,7 +22,19 @@ Every cost[i] will be an integer in the range [0, 999].
 
 
 def minCostClimbingStairs(self, cost: List[int]) -> int:
-    c1, c2 = cost[0], cost[1]
-    for i in range(2, len(cost)):
-        c1, c2 = c2, cost[i] + min(c1, c2)
-    return min(c1, c2)
+    d1, d2 = 0,0
+    
+    for i in range(2,len(cost)+1):
+        d1, d2 = min(d1+cost[i-1],d2+cost[i-2]), d1
+
+    return d1
+
+
+def minCostClimbingStairs2(self, cost: List[int]) -> int:
+    n = len(cost)
+    dp = [0] * (n+1)
+    
+    for i in range(2,n+1):
+        dp[i] = min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2])
+        
+    return dp[-1]

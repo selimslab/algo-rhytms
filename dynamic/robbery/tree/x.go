@@ -7,9 +7,38 @@
  * }
  */
 
- type pair struct {
-    now int
-    later int
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+
+
+ func rob(root *TreeNode) int {
+    if root == nil{
+        return 0
+    }
+    pair := robTree(root)
+    return pair.max()
+}
+
+
+func robTree(node *TreeNode) Pair {
+    if node == nil{
+        return Pair{}
+    }
+    
+    left := robTree(node.Left)
+    right := robTree(node.Right)
+    
+    p := Pair{}
+    p.now = node.Val + left.later + right.later
+    p.later = left.max() + right.max()
+    
+    return p 
 }
 
 func max(a int, b int) int{
@@ -19,30 +48,11 @@ func max(a int, b int) int{
     return b 
 }
 
-func robTree(node *TreeNode) pair {
-    /*
-    now: max money earned if input node is robbed
-    later: max money earned if input node is not robbed
-    */
-    if node == nil {
-        return pair{}
-    }
-
-    left := robTree(node.Left)
-    right := robTree(node.Right)
-    
-    p := pair{}
-    p.now = node.Val + left.later + right.later
-    p.later = max(left.now, left.later) + max(right.now, right.later)
-
-    return p
-    
+type Pair struct {
+    now int
+    later int
 }
 
-func rob(root *TreeNode) int {    
-    if root == nil {
-        return 0
-    }
-    res := robTree(root)
-    return max(res.now, res.later)
+func (p *Pair) max() int{
+    return max(p.now, p.later)
 }
